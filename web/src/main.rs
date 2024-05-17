@@ -29,6 +29,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .service(fs::Files::new("/static", "static/").show_files_listing())
+            .service(fs::Files::new("/img", "img/").show_files_listing())
             .route("/", web::get().to(index))
             .route("/game", web::get().to(game))
     })

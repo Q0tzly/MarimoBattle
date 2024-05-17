@@ -19,7 +19,7 @@
         </nav>
 	</header>
 	<main>
-		<p>Hello</p>
+		<a href="game.html" class="btn-square">Game Start</a>
 	</main>
 	<footer>
         <p>&copy; 2024 Q0tzly and amyoshi</p>

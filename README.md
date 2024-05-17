@@ -21,3 +21,20 @@
 ### If we have time
 - 時間があれば、クライアントのコードをRustで書き直して、実行ファイルを配布できるようにする。
 - もっと時間があれば、全てのコードをRustで書き直す。
+
+## File structure
+`
+.
+├── README.md
+├── docker-compose.yml
+├── end.sh
+├── up.sh
+└── web
+    ├── Cargo.lock
+    ├── Cargo.toml
+    ├── Dockerfile
+    ├── src
+    │   └── main.rs
+    ├── static
+    └── templates
+`

@@ -5,28 +5,41 @@ window.onload = function() {
     window.addEventListener('keyup', handleKeyUp);
     window.addEventListener('resize', initBackground);
     initBackground();
-
-    function handleKeyDown(e) {
+var x =0;
+  function handleKeyDown(e) {
         var key = e.key;
         for (var i = 0; i < dots.length; i++) {
             switch (key) {
                 case 'ArrowUp':
                 case 'w':
                     dots[i].vec.y = speed;
+                    x+=speed;
+                    console.log('x',x);
                     break;
                 case 'ArrowDown':
                 case 's':
                     dots[i].vec.y = -speed;
+                    x+=speed;
+                    console.log('x',x);
                     break;
                 case 'ArrowLeft':
                 case 'a':
                     dots[i].vec.x = speed;
+                    x+=speed;
+                    console.log('x',x);
                     break;
                 case 'ArrowRight':
                 case 'd':
                     dots[i].vec.x = -speed;
+                    x+=speed;
+                    console.log('x',x);
                     break;
             }
+        }
+        if(x >2000){
+          var photoElement = document.getElementById('player');
+          photoElement.parentNode.removeChild(photoElement);
+          console.log("died!");
         }
     }
 

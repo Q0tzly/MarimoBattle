@@ -1,1 +1,12 @@
-<canvas id="canvas"></canvas>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>MarimoBattle</title>
+	<link rel="stylesheet" href="/static/css/game.css">
+</head>
+<body>
+	<canvas id="background"></canvas>
+	<img id="player" src="/img/marimo1.png">
+	<script src="/static/script/game.js" charset="utf-8"></script>
+</body>

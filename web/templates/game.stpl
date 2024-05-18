@@ -6,9 +6,7 @@
 	<link rel="stylesheet" href="/static/css/game.css">
 </head>
 <body>
-	<div id="background">
-		<canvas id="canvas"></canvas>
-	</div>
-	<script src="/static/script/background.js"></script>
+	<canvas id="background"></canvas>
+	<img id="player" src="/img/marimo1.png">
 	<script src="/static/script/game.js" charset="utf-8"></script>
 </body>

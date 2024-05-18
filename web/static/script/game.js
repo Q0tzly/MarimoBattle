@@ -6,6 +6,7 @@ window.onload = function() {
     window.addEventListener('resize', initBackground);
     initBackground();
 var x =0;
+var killflag =0;
   function handleKeyDown(e) {
         var key = e.key;
         for (var i = 0; i < dots.length; i++) {
@@ -36,10 +37,14 @@ var x =0;
                     break;
             }
         }
-        if(x >2000){
+        if(x >2000 && killflag <= 0){
           var photoElement = document.getElementById('player');
           photoElement.parentNode.removeChild(photoElement);
           console.log("died!");
+        }
+        if(x > 2000){
+          killflag-=1;
+          x=0;
         }
     }
 

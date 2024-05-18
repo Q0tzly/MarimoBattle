@@ -13,5 +13,6 @@ EXPOSE 80
 COPY --from=builder /web/target/release/web ./bin/web
 COPY --from=builder /web/templates ./templates
 COPY --from=builder /web/static ./static
+COPY --from=builder /web/img ./img
 RUN chmod +x /web/bin/web
 CMD ["./bin/web"]

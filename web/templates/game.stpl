@@ -8,5 +8,5 @@
 <body>
 	<canvas id="background"></canvas>
 	<img id="player" src="/img/marimo1.png">
-	<script src="/static/script/game.js" charset="utf-8"></script>
+	<script type="module" src="/static/script/game.js" charset="utf-8"></script>
 </body>

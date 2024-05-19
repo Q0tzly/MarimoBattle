@@ -6,7 +6,8 @@ window.onload = function() {
     window.addEventListener('resize', initBackground);
     initBackground();
 var x =0;
-var killflag =0;
+var killflag =1;
+const PlayerImage = document.getElementById('player');
   function handleKeyDown(e) {
         var key = e.key;
         for (var i = 0; i < dots.length; i++) {
@@ -37,9 +38,13 @@ var killflag =0;
                     break;
             }
         }
+        if(killflag>0){
+          PlayerImage.src="../../img/marimo1.png"
+        }else if(killflag == 0){
+          PlayerImage.src="../../img/damage1.png"
+        }
         if(x >2000 && killflag <= 0){
-          var photoElement = document.getElementById('player');
-          photoElement.parentNode.removeChild(photoElement);
+          PlayerImage.parentNode.removeChild(PlayerImage);
           console.log("died!");
         }
         if(x > 2000){

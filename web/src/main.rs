@@ -46,7 +46,7 @@ async fn main() -> std::io::Result<()> {
             .route("/game", web::get().to(game))
             .route("/result",web::get().to(result))
     })
-    .bind(("0.0.0.0", 81))?
+    .bind(("0.0.0.0", 80))?
     .run()
     .await
 }

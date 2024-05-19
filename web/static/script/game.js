@@ -42,6 +42,7 @@ window.onload = function() {
         if(move_range > 2000 && killflag <= 0){
           PlayerImage.parentNode.removeChild(PlayerImage);
           console.log("died!");
+          window.location.href="/result";
         }
         if(move_range > 2000){
           killflag -= 1;

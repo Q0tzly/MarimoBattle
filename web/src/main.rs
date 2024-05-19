@@ -10,6 +10,10 @@ struct IndexBase;
 #[template(path = "game.stpl")]
 struct GameBase;
 
+#[derive(TemplateOnce)]
+#[template(path="result.stpl")]
+struct ResultBase;
+
 async fn index() -> HttpResponse {
     let base = IndexBase;
     let rendered = base.render_once().unwrap();
@@ -22,6 +26,14 @@ async fn game() -> HttpResponse {
     HttpResponse::Ok().content_type("text/html").body(rendered)
 }
 
+async fn result() -> HttpResponse {
+    let base = ResultBase;
+    let rendered = base.render_once().unwrap();
+    HttpResponse::Ok().content_type("text/html").body(rendered)
+}
+
+
+
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     println!("Starting server at port 80");
@@ -32,6 +44,7 @@ async fn main() -> std::io::Result<()> {
             .service(fs::Files::new("/img", "img/").show_files_listing())
             .route("/", web::get().to(index))
             .route("/game", web::get().to(game))
+            .route("/result",web::get().to(result))
     })
     .bind(("0.0.0.0", 80))?
     .run()

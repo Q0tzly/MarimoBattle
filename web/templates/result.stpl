@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<center>
+<h1>RESULT</h1>
+<h2><div id="point"></div></h2>
+<script>
+var point =10;
+document.getElementById("point").textContent = "point " + point;
+//リンククリック
+document.querySelector("h3 a").addEventListener("click",function(event){
+    event.preventDefault();
+    window.location.href = "http://localhost:81/game";
+  });
+}
+</script>
+<h3><a href="/">PLAY AGAIN</a></h3>
+</center>

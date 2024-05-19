@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>MarimoBattle</title>
+	<link rel="stylesheet" href="/static/css/game.css">
+</head>
+<body>
+	<meter id="meter" min="0" max="1" value="1"></meter>
+	<p id="score">Score: 0</p>
+	<canvas id="background"></canvas>
+	<img class ="live" id="player" src="/img/marimo1.png">
+	<script type="module" src="/static/script/game.js" charset="utf-8"></script>
+</body>

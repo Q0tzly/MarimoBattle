@@ -9,6 +9,7 @@ window.onload = function() {
     var move_range = 0;
     var killflag = 1;
     const PlayerImage = document.getElementById('player');
+    const meter = document.getElementById('meter');
 
     function handleKeyDown(e) {
         var key = e.key;
@@ -32,7 +33,9 @@ window.onload = function() {
                     break;
             }
             move_range += speed;
-            console.log('move_range',move_range);
+
+            meter.max = killflag;
+            meter.value = move_range;
         }
         if(killflag>0){
           PlayerImage.src="../../img/marimo1.png"

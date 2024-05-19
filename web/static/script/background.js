@@ -17,6 +17,9 @@ export var colors = ['#eeb900', '#6DD0A5', '#f799db'];
 export var baseSize = 3;
 export var speed = 2;
 export var enemy_position;
+const scoreElement= document.getElementById('score');
+var score = 0;
+
 
 canvas = document.querySelector('#background');
 canvas.setAttribute("width", canvas.parentElement.offsetWidth);
@@ -29,6 +32,20 @@ function enemy(x, y, img) {
     const image = new Image();
     image.src = img;
     ctx.drawImage(image, x, y);
+    console.log(x, y);
+    console.log(center.x, center.y);
+
+    if (Math.abs(x - center.x) < 100 && Math.abs(y - center.y) < 100) {
+        enemy_position = { // 新しいランダムな場所に敵を生成
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height
+        };
+        ctx.drawImage(image, x, y);
+        console.log("Kill enemy");
+        score += 1;
+        scoreElement.textContent = 'Score: ' + score;
+        //window.location.href="/result";
+    }
 }
 
 export function initBackground() {
@@ -78,9 +95,7 @@ function Dot() {
     };
 }
 
-Dot.prototype.update = function() {
-    this.draw();
-
+Dot.prototype.update = function() { this.draw();
     this.pos.x += this.vec.x;
     this.pos.y += this.vec.y;
 

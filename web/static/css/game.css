@@ -14,6 +14,10 @@ html, body {
     align-items: center;
 }
 
+#meter {
+    z-index: 1;
+}
+
 #canvas {
     display: block;
     margin: 0 auto;

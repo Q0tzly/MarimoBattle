@@ -9,9 +9,8 @@ window.onload = function() {
     var move_range = 0;
     var killflag = 1;
     const PlayerImage = document.getElementById('player');
-    const EnemyImage = document.getElementById('enemy');
 
-  function handleKeyDown(e) {
+    function handleKeyDown(e) {
         var key = e.key;
         for (var i = 0; i < dots.length; i++) {
             switch (key) {

@@ -1,55 +1,52 @@
-import { initBackground, dots, speed } from './background.js';
+import { initBackground, dots, speed, enemy_position } from './background.js';
 
 window.onload = function() {
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
     window.addEventListener('resize', initBackground);
     initBackground();
-var x =0;
-var killflag =1;
-const PlayerImage = document.getElementById('player');
+
+    var move_range = 0;
+    var killflag = 1;
+    const PlayerImage = document.getElementById('player');
+    const EnemyImage = document.getElementById('enemy');
+
   function handleKeyDown(e) {
         var key = e.key;
         for (var i = 0; i < dots.length; i++) {
             switch (key) {
-                case 'ArrowUp':
                 case 'w':
-                    dots[i].vec.y = speed;
-                    x+=speed;
-                    console.log('x',x);
+                    dots[i].vec.y = speed;                   
+                    enemy_position.y += speed;
                     break;
-                case 'ArrowDown':
                 case 's':
                     dots[i].vec.y = -speed;
-                    x+=speed;
-                    console.log('x',x);
+                    enemy_position.y -= speed;
                     break;
-                case 'ArrowLeft':
                 case 'a':
                     dots[i].vec.x = speed;
-                    x+=speed;
-                    console.log('x',x);
+                    enemy_position.x += speed;
                     break;
-                case 'ArrowRight':
                 case 'd':
                     dots[i].vec.x = -speed;
-                    x+=speed;
-                    console.log('x',x);
+                    enemy_position.x -= speed;
                     break;
             }
+            move_range += speed;
+            console.log('move_range',move_range);
         }
         if(killflag>0){
           PlayerImage.src="../../img/marimo1.png"
         }else if(killflag == 0){
           PlayerImage.src="../../img/damage1.png"
         }
-        if(x >2000 && killflag <= 0){
+        if(move_range > 2000 && killflag <= 0){
           PlayerImage.parentNode.removeChild(PlayerImage);
           console.log("died!");
         }
-        if(x > 2000){
-          killflag-=1;
-          x=0;
+        if(move_range > 2000){
+          killflag -= 1;
+          move_range = 0;
         }
     }
 
@@ -57,14 +54,10 @@ const PlayerImage = document.getElementById('player');
         var key = e.key;
         for (var i = 0; i < dots.length; i++) {
             switch (key) {
-                case 'ArrowUp':
-                case 'ArrowDown':
                 case 'w':
                 case 's':
                     dots[i].vec.y = 0;
                     break;
-                case 'ArrowLeft':
-                case 'ArrowRight':
                 case 'a':
                 case 'd':
                     dots[i].vec.x = 0;

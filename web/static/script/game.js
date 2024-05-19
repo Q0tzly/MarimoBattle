@@ -46,6 +46,7 @@ const PlayerImage = document.getElementById('player');
         if(x >2000 && killflag <= 0){
           PlayerImage.parentNode.removeChild(PlayerImage);
           console.log("died!");
+          window.location.href="/result";
         }
         if(x > 2000){
           killflag-=1;

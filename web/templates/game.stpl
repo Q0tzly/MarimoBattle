@@ -7,6 +7,6 @@
 </head>
 <body>
 	<canvas id="background"></canvas>
-	<img id="player" src="/img/marimo1.png">
+	<img class ="live" id="player" src="/img/marimo1.png">
 	<script type="module" src="/static/script/game.js" charset="utf-8"></script>
 </body>
